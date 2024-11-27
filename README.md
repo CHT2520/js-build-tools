@@ -54,7 +54,7 @@ npm install --save color-name
 - If you look in the _node_modules_ folder you should find you have a _color-name_ folder where these files have been installed.
 - Open _package.json_. This keeps tracks of the different packages we have installed. You should be able to see the _color-name_ package.
 
-_color-name_ is a really simple package; it simply tells us an RGB value for common colour names
+_color-name_ is a really simple package; it simply tells us the RGB value for common colour names.
 
 - To use this package we need to import it
 - Change _main.js_ to the following:
@@ -69,11 +69,11 @@ alert("lightblue has an RGB value of: " + colors.lightblue); // this line uses t
 
 - We are now importing _color-name_ and then using it on the final line to tell us the RGB value for lightblue.
 
-- If try and run this example in a browser, it won't work.
+- If you try and run this example in a browser, it won't work.
 
 By default browsers don't know where to find the packages we have installed into our project.
 
-In order to use Node.js packages we need a build tool. A build tool will look through all the `import` statements, find the dependencies needed to run the app and build JavaScript the browser can understand.
+In order to use Node.js packages we need a build tool. A build tool will look through all the `import` statements, find the dependencies needed to run the app and build JavaScript files the browser can understand.
 
 ## Installing the Vite Build Tool
 
@@ -95,7 +95,7 @@ npx vite
 ```
 
 - You should get some feedback about Vite starting a server e.g. http://localhost:5137.
-- Open the browser at this URL and the app should work. You should get three alert messages. The final one uses the _color-name_ package.
+- Open the browser at this URL and the app should work. You should get three alert messages. The final one uses the _color-name_ package. We have successfully installed and used a Node.js package.
 
 ## Using React
 
@@ -103,7 +103,7 @@ React is a front-end library that makes it easier for us to build complex JavaSc
 
 - Stop the Vite server (q+enter)
 
-The project already contains some React code. Have a look in _App.jsx_ and _main.jsx_. React files use a markup syntax called JSX. We use the _.jsx_ filename extension to specify these files contain JSX syntax.
+The project already contains some React code. Have a look at the files _App.jsx_ and _main.jsx_. React files use a markup syntax called JSX. We use the _.jsx_ filename extension to specify these files contain JSX syntax.
 
 - Change the `<script>` element in _index.html_ to point to _main.jsx_.
 
@@ -124,8 +124,8 @@ npm install --save-dev @vitejs/plugin-react
 ```
 
 - We also now need a config file for Vite so it knows to transpile React code.
-- Create a new file in the root of the project called _vite.config.js_
-- Enter the following into this file:-
+  - Create a new file in the root of the project called _vite.config.js_
+  - Enter the following into this file:-
 
 ```javascript
 import { defineConfig } from "vite";
@@ -144,11 +144,10 @@ npx vite
 
 - You should find the app now works. Users can select a decade and the list of films updates.
 
-- There a loads of really good resources online for learning React e.g. https://react.dev/
-
 ### Test Your Understanding
 
 - Have a look in _App.jsx_, try and make sense of the React code.
+  - There a loads of really good resources online for learning React e.g. https://react.dev/ should give you an overview to get you started.
 - How can you expand this example so that it also shows films from the 1990s
   - You will need to add a new JSON file in the data directory for films from the 1990s, just add a couple of films.
     - You will need to add an additional hyperlink in the `TabbedFilmNavigation` component.
@@ -157,7 +156,7 @@ npx vite
 
 ## What About Tailwind?
 
-Previously we used NPM to install and run TailwindCSS. We can also run Tailwind using Vite. We then have a single build process that handles CSS and JavaScript related tasks for us.
+Previously we used NPM to install and run Tailwind. We can also run Tailwind using Vite. We will then have a single build process that handles both CSS and JavaScript related tasks for us.
 
 - Stop the Vite server
 - In the shell/terminal enter the following to install Tailwind
@@ -207,9 +206,9 @@ npx vite
 
 - You should find that the web app is now styled using Tailwind.
 
-## Generating a Dist Version
+## Generating a _dist_ Version
 
-So far we have been using Vite for development. Once we are happy with our app and ready to publish it, we can create a _dist_ version. The _dist_ version will feature minimised (no whitespaces, line breaks etc) CSS and JavaScript files that will work without the need for a build tool.
+So far we have been using Vite for development. Once we are happy with our app and ready to publish it, we can create a _dist_ (distribution) version. The _dist_ version will feature minimised (no whitespaces, line breaks etc) CSS and JavaScript files that will work without the need for a build tool.
 
 - In the terminal/shell enter
 
