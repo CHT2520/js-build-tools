@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 
-
 function FilmsHeading({decade}){
   return (<h1>Films from the {decade}s</h1>);
 }
-
 
 function FilmLink({title, id}){
   return <div><a href="/films/{id}">{title}</a></div>
