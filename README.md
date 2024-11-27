@@ -204,7 +204,7 @@ export default {
 npx vite
 ```
 
-- You should find that the web app is now styled using Tailwind.
+- You should find that the web app is now styled using Tailwind. We can makes changes to the React code and add Tailwind classes and Vite will watch our files and re-build the app when changes are made.
 
 ## Generating a _dist_ Version
 
