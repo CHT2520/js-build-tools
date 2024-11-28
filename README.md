@@ -217,3 +217,6 @@ npx vite build
 ```
 
 You should find that Vite generates a new version of your site in the _dist_ folder.
+
+## What About Laravel
+There is a Laravel plug-in for Vite and when we create a Laravel project a *package.json* file is added to the project that lists the key dependencies needed for Vite and Laravel integration. See https://laravel.com/docs/11.x/vite#installation for details on using Vite, Laravel and React. 
