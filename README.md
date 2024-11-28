@@ -192,7 +192,7 @@ export default {
 @tailwind utilities;
 ```
 
-- Add some Tailwind classes in into _index.html_ and/or the React components e.g.
+- Add some Tailwind classes in _index.html_ and/or the React components e.g.
 
 ```html
 <body class="text-red-400"></body>
