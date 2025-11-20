@@ -44,7 +44,8 @@ showMessage(); //calls the function from the imported module
 
 Often in our JavaScript we will want to use 3rd party code (libraries/frameworks). To do this we need to use NPM to download and install this code (a package).
 
-- Using the terminal/shell navigate to the root of this project folder
+- Open a new terminal/shell
+- Using the terminal/shell navigate to the root of this project folder e.g. `cd js-build-tools`.
 - Enter the following command
 
 ```
@@ -89,23 +90,6 @@ npm install --save-dev vite
 - Open _package.json_. Notice that _color-name_ has been installed under _dependencies_ but Vite has been installed under _devDependencies_.
   - _devDependencies_ (development dependencies) is for packages that are needed during development e.g. to build the JavaScript file, but are never used by our app or run in the browser. We used the `--save-dev` flag during installation to specify Vite as a development dependency.
 
-You should find that also have Vite configuration file _vite.config.js_ in the root of your folder.
--   If you are using Codespaces you will need to add some server settings this file so that it looks like the following:
-    > If you are using XAMPP you don't need to make any changes to this file.
-
-```javascript
-import { defineConfig } from "vite";
-export default defineConfig({
-    server: {
-        cors: true,
-        hmr: {
-            host: "name-of-codespace-5173.github.dev",
-            clientPort: 443,
-            protocol: "wss",
-        },
-    },
-});
-```
 
 
 - We will get Vite to serve our web app.
@@ -116,7 +100,6 @@ npx vite
 ```
 
 - You should get some feedback about Vite starting a server e.g. http://localhost:5137.
-- If you are using Codespaces, under the ports tab, you should find you have the Vite server running on port 5173. Make this port public.
 - Open the browser at this URL and the app should work. You should get three alert messages. The final one uses the _color-name_ package. We have successfully installed and used a Node.js package.
 
 ## Using React
@@ -153,18 +136,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [react()],
-  server: {
-        cors: true,
-        hmr: {
-            host: "name-of-codespace-5173.github.dev",
-            clientPort: 443,
-            protocol: "wss",
-        },
-    }
+  plugins: [react()]
 });
-
-
 ```
 
 - Then start the vite server again
@@ -193,34 +166,29 @@ Previously we used NPM to install and run Tailwind. We can also run Tailwind usi
 - In the shell/terminal enter the following to install Tailwind
 
 ```
-npm install --save-dev tailwindcss postcss autoprefixer
+npm install tailwindcss @tailwindcss/vite
 ```
 
-- Initialise Tailwind
-
-```
-npx tailwindcss init -p
-```
-
-- Edit the _tailwind.config.js_ file to specify the location of the homepage and the JSX files.
+- Add the Tailwind plug-in to _vite.config.js_
 
 ```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss()
+]
+});
 ```
 
-- Add the Tailwind directives in the _src/index.css_ CSS file
+
+- Add the Tailwind directives in the _src/css/index.css_ CSS file
 
 ```css
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 ```
 
 - Add some Tailwind classes in _index.html_ and/or the React components e.g.
@@ -249,5 +217,3 @@ npx vite build
 
 You should find that Vite generates a new version of your site in the _dist_ folder.
 
-## What About Laravel
-There is a Laravel plug-in for Vite and when we create a Laravel project a *package.json* file is added to the project that lists the key dependencies needed for Vite and Laravel integration. See https://laravel.com/docs/11.x/vite#installation for details on using Vite, Laravel and React. 
