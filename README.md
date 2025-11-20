@@ -1,16 +1,18 @@
 # NPM, JavaScript Build Tools and using a Front-End Framework
+## If you are using Codespaces
+- Open your existing codespace (The one we used in the first four weeks of the module) https://github.com/codespaces.
+- In the terminal enter
+```
+git clone https://github.com/CHT2520-web-prog/js-build-tools
+```
+- This will copy the contents of this repository into your codespace.
 
-- Download this repository and unzip the folder.
-- Open the folder in VS Code.
-- Although JavaScript runs in a web browser. Some features of JavaScript will only work if the web page is on a server. The easiest way to do this VS Code is to install the 'Live Server' extension.
-  - In VS Code, on the right-hand side menu click on extensions (it looks like some blocks with one separated from the others)
-  - Search for 'live server' and install it.
-  - Once it's installed, in the bottom right of VS Code click on 'Go Live' to launch the server. This will tell you a port number e.g. 5500
-  - In a web browser enter localhost and the port number e.g. http://localhost:5500/ to view your page.
-- The app should have some very basic functionality.
-  - Eventually we'll implement some dynamic content into this page using React, but for now when the page loads the user should receive an `alert()` message.
+## If you are using XAMPP
+- Download this repository and unzip it. Move the folder into your htdocs directory on XAMPP.
 
-## Modular JavaScript
+## Completing the practical work
+
+### Modular JavaScript
 
 Previously when we looked at JavaScript, all our JavaScript was in a single file. When writing more complex applications we typically split the code into different 'modules', and then import the code when needed. To demonstrate this:-
 
@@ -42,7 +44,7 @@ showMessage(); //calls the function from the imported module
 
 Often in our JavaScript we will want to use 3rd party code (libraries/frameworks). To do this we need to use NPM to download and install this code (a package).
 
-- Using the terminal/shell navigate to this project folder
+- Using the terminal/shell navigate to the root of this project folder
 - Enter the following command
 
 ```
@@ -83,11 +85,30 @@ Enter the following into the shell/terminal
 ```
 npm install --save-dev vite
 ```
-
 - Again you should get some feedback that Vite is being installed
 - Open _package.json_. Notice that _color-name_ has been installed under _dependencies_ but Vite has been installed under _devDependencies_.
   - _devDependencies_ (development dependencies) is for packages that are needed during development e.g. to build the JavaScript file, but are never used by our app or run in the browser. We used the `--save-dev` flag during installation to specify Vite as a development dependency.
-- Stop Live Server. We will get Vite to serve our web app instead.
+
+You should find that also have Vite configuration file _vite.config.js_ in the root of your folder.
+-   If you are using Codespaces you will need to add some server settings this file so that it looks like the following:
+    > If you are using XAMPP you don't need to make any changes to this file.
+
+```javascript
+import { defineConfig } from "vite";
+export default defineConfig({
+    server: {
+        cors: true,
+        hmr: {
+            host: "name-of-codespace-5173.github.dev",
+            clientPort: 443,
+            protocol: "wss",
+        },
+    },
+});
+```
+
+
+- We will get Vite to serve our web app.
 - Enter the following into the shell/terminal.
 
 ```
@@ -95,10 +116,10 @@ npx vite
 ```
 
 - You should get some feedback about Vite starting a server e.g. http://localhost:5137.
+- If you are using Codespaces, under the ports tab, you should find you have the Vite server running on port 5173. Make this port public.
 - Open the browser at this URL and the app should work. You should get three alert messages. The final one uses the _color-name_ package. We have successfully installed and used a Node.js package.
 
 ## Using React
-
 React is a front-end library that makes it easier for us to build complex JavaScript web applications. However, web browsers don't understand React code, so we need to transpile (convert) it into plain JavaScript before using it in our apps. To do this we can use a build tool such as Vite.
 
 - Stop the Vite server (q+enter)
@@ -133,7 +154,17 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+        cors: true,
+        hmr: {
+            host: "name-of-codespace-5173.github.dev",
+            clientPort: 443,
+            protocol: "wss",
+        },
+    }
 });
+
+
 ```
 
 - Then start the vite server again
