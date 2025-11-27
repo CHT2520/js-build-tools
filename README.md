@@ -118,7 +118,7 @@ The project already contains some React code. Have a look at the files _App.jsx_
 - Using the shell/terminal install the react library
 
 ```
-npm install --save react react-dom
+npm install --save-dev react react-dom
 ```
 
 - Next, install the react plug-in for vite
@@ -174,7 +174,7 @@ npm install tailwindcss @tailwindcss/vite
 ```javascript
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [
