@@ -185,7 +185,7 @@ export default defineConfig({
 ```
 
 
-- Add the Tailwind directives in the _src/css/index.css_ CSS file
+- Add the Tailwind directive in the _src/css/index.css_ CSS file
 
 ```css
 @tailwind base;
