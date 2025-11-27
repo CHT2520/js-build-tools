@@ -105,7 +105,7 @@ npx vite
 ## Using React
 React is a front-end library that makes it easier for us to build complex JavaScript web applications. However, web browsers don't understand React code, so we need to transpile (convert) it into plain JavaScript before using it in our apps. To do this we can use a build tool such as Vite.
 
-- Stop the Vite server (q+enter)
+- Stop the Vite server (ctrll+c)
 
 The project already contains some React code. Have a look at the files _App.jsx_ and _main.jsx_. React files use a markup syntax called JSX. We use the _.jsx_ filename extension to specify these files contain JSX syntax.
 
