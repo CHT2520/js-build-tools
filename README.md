@@ -188,7 +188,7 @@ export default defineConfig({
 - Add the Tailwind directive in the _src/css/index.css_ CSS file (replace the existing rules).
 
 ```css
-@tailwind base;
+@import "tailwindcss";
 ```
 
 - Add some Tailwind classes in _index.html_ and/or the React components e.g.
