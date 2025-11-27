@@ -194,7 +194,7 @@ export default defineConfig({
 - Add some Tailwind classes in _index.html_ and/or the React components e.g.
 
 ```html
-<body class="text-red-400"></body>
+<body class="text-red-400">
 ```
 
 - Restart the Vite server
